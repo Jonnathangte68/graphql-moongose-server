@@ -8,6 +8,14 @@ const resolvers = {
             const skills = await dataSources.skillAPI.getAll();
             return (skills);
         },
+        getSkillsByUser: async (_, args, {dataSources}) => {
+            const skills = await dataSources.skillAPI.getAll();
+            return (skills);
+        },
+        getUserBySkill: async (_, args, {dataSources}) => {
+            const skills = await dataSources.skillAPI.getAll();
+            return (skills);
+        }/*,
         getVideos: async (_, args, {dataSources}) => {
             const videos = await dataSources.videoAPI.getAll();
             return (videos);
@@ -43,7 +51,7 @@ const resolvers = {
         getAnswers: async (_, args, {dataSources}) => {
             const answers = await dataSources.answerAPI.getAll();
             return (answers);
-        }
+        }*/
     },
     Mutation: {
         addUser: async (_, args, {dataSources}) => {
@@ -54,7 +62,13 @@ const resolvers = {
             const addSkill = await dataSources.skillAPI.insert(args);
             return (addSkill);
         }
-    }
+    },
+    User: {
+        skills: Query.getSkillsByUser
+    },
+    Skill: {
+        user: Query.getUserBySkill
+    },
 };
 
 module.exports = resolvers;

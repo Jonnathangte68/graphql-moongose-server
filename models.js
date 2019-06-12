@@ -3,7 +3,8 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
   username: String,
-  email: String
+  email: String,
+  skills: [{ type: Schema.Types.ObjectId, ref: 'Skill' }]
 });
 
 const skillSchema = new Schema({
@@ -11,7 +12,8 @@ const skillSchema = new Schema({
   status: String,
   subject: String,
   tags: String,
-  content_types: String
+  content_types: String,
+  user: { type: Schema.Types.ObjectId, ref: 'User' }
 });
 
 const videoSchema = new Schema({

@@ -5,6 +5,7 @@ type User {
     _id: ID
     username: String
     email: String
+    skills: [Skill]
 }
 type Skill {
     _id: ID
@@ -13,6 +14,7 @@ type Skill {
     subject: String
     tags: String
     content_types: String
+    user: User
 }
 type Video {
     _id: ID
@@ -86,15 +88,6 @@ type Answer {
 type Query {
     getUsers: [User]
     getSkills: [Skill]
-    getVideos: [Video]
-    getContentTypes: [ContentType]
-    getPassages: [Passage]
-    getTags: [Tag]
-    getQuestions: [Question]
-    getHints: [Hint]
-    getSolutions: [Solution]
-    getChoices: [Choice]
-    getAnswers: [Answer]
 }
 type Mutation {
     addUser(userName: String!, email: String!): User

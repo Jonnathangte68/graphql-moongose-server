@@ -1,8 +1,7 @@
 const { User: u } = require('../../models');
 
 class UserAPI {
-    constructor() {
-    }
+    constructor() {}
 
     async getAll() {
         let response = await u.find({});
@@ -14,13 +13,11 @@ class UserAPI {
         return response;
     }
 
-    /*async getAllLaunches() {
-        const response = await this.get('launches');
-
-        // transform the raw launches to a more friendly
-        return Array.isArray(response)
-        ? response.map(launch => this.launchReducer(launch)) : [];
-    }*/
+    async getById(args) {
+        const userId = args.user;
+        let response = await u.findById(userId);
+        return response;
+    }
 }
 
 module.exports = UserAPI;

@@ -14,13 +14,13 @@ class SkillAPI {
         return response;
     }
 
-    /*async getAllLaunches() {
-        const response = await this.get('launches');
-
-        // transform the raw launches to a more friendly
-        return Array.isArray(response)
-        ? response.map(launch => this.launchReducer(launch)) : [];
-    }*/
+    async getByUserId(args) {
+        const userId = args._id;
+        let response = await Skill.find({
+            'user': userId
+        });
+        return response;
+    }
 }
 
 module.exports = SkillAPI;
