@@ -1,4 +1,4 @@
-const { Question } = require('../../models');
+const { Question } = require('../models/Question');
 
 class QuestionAPI {
     constructor() {

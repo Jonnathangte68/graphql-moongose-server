@@ -1,0 +1,6 @@
+type Choice {
+    _id: ID
+    text: String
+    question: String
+    solution: String
+}

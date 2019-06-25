@@ -1,4 +1,4 @@
-const { Hint } = require('../../models');
+const { Hint } = require('../models/Hint');
 
 class HintAPI {
     constructor() {

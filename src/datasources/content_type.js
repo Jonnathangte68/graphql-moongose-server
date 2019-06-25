@@ -1,4 +1,4 @@
-const { ContentType } = require('../../models');
+const { ContentType } = require('../models/ContentType');
 
 class ContentTypeAPI {
     constructor() {

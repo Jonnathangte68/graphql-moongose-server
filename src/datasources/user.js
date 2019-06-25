@@ -1,4 +1,6 @@
-const { User: u } = require('../../models');
+const { User: u } = require('../models/User');
+const createToken  = require('../utils/createToken');
+const comparePasswords  = require('../utils/comparePasswords');
 
 class UserAPI {
     constructor() {}
@@ -10,7 +12,14 @@ class UserAPI {
 
     async insert(args) {
         let response = await u.create(args);
-        return response;
+        let token = createToken(response);
+        return {token};
+    }
+
+    async login(args){
+        return await comparePasswords(args.email,args.password)
+            .then((token) => {return {token}})
+            .catch((err) => { throw err });
     }
 
     async getById(args) {

@@ -1,0 +1,10 @@
+type Solution {
+    _id: ID
+    text: String
+    type: String
+    choices: String
+    correct_choice: String
+    written_solution: String
+    tags: String
+    questions: String
+}

@@ -1,0 +1,5 @@
+type Hint {
+    _id: ID
+    text: String
+    question: String
+}

@@ -1,0 +1,12 @@
+#import User, UserInput from 'src/graphql/user.graphql'
+#import Skill, SkillInput from 'src/graphql/skill.graphql'
+
+type Query {
+    getUsers: [User!]!
+    getSkills: [Skill!]!
+}
+type Mutation {
+    addUser(data: UserInput!):AuthToken
+    login(email:String!,password:String!):AuthToken
+    addSkill(data: SkillInput!):Skill
+}

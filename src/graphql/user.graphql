@@ -1,0 +1,20 @@
+#import Skill, SkillInput from './skill.graphql'
+
+type User {
+    _id: ID
+    username: String!
+    email: String!
+    password: String!
+    skills: [Skill]
+}
+
+input UserInput {
+    username: String!
+    email: String!
+    password: String!
+    skills: [SkillInput]
+}
+
+type AuthToken {
+    token:String
+}
