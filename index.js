@@ -1,8 +1,9 @@
 const express               = require('express');
+const { importSchema }      = require('graphql-import');
 const { ApolloServer, gql } = require('apollo-server-express');
 const dbConection           = require('./config');
 
-const typeDefs              = require('./src/schema');
+const typeDefs              = importSchema('./schema.graphql');
 const resolvers             = require('./src/resolvers');
 
 const UserAPI               = require('./src/datasources/user');
@@ -16,6 +17,8 @@ const HintAPI               = require('./src/datasources/hint');
 const SolutionAPI           = require('./src/datasources/solution');
 const ChoiceAPI             = require('./src/datasources/choice');
 const AnswerAPI             = require('./src/datasources/answer');
+
+const verifyToken           = require('./src/utils/verifyToken');
 
 const dataSources = () => ({
   userAPI: new UserAPI(),
@@ -32,7 +35,16 @@ const dataSources = () => ({
 });
 
 dbConection.once('open', () => {
-  const server = new ApolloServer({ typeDefs, resolvers, dataSources });
+  const server = new ApolloServer({ 
+    typeDefs, 
+    resolvers,
+    context: async ({req}) => ({
+      ...req,
+      user: await verifyToken(req)
+    }),
+    dataSources
+  });
+
   const app = express();
   server.applyMiddleware({ app });
 

@@ -14,6 +14,7 @@ const resolvers = {
     },
     Mutation: {
       addUser: UserResolvers.addUser,
+      login: UserResolvers.login,
       addSkill: SkillResolvers.addSkill
     }
 }

@@ -1,4 +1,4 @@
-const { Video } = require('../../models');
+const { Video } = require('../models/Video');
 
 class VideoAPI {
     constructor() {

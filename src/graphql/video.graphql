@@ -1,0 +1,6 @@
+type Video {
+    _id: ID
+    name: String
+    source: String
+    skill: String
+}

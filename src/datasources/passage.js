@@ -1,4 +1,4 @@
-const { Passage } = require('../../models');
+const { Passage } = require('../models/Passage');
 
 class PassageAPI {
     constructor() {

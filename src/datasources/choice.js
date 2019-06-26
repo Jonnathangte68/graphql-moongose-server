@@ -1,4 +1,4 @@
-const { Choice } = require('../../models');
+const { Choice } = require('../models/Choice');
 
 class ChoiceAPI {
     constructor() {

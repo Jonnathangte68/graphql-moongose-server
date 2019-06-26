@@ -1,0 +1,6 @@
+type ContentType {
+    _id: ID
+    name: String
+    source: String
+    skill: String
+}

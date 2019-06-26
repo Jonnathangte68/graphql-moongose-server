@@ -1,0 +1,4 @@
+type Tag {
+    _id: ID
+    name: String
+}

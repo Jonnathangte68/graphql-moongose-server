@@ -1,0 +1,6 @@
+type Answer {
+    _id: ID
+    text: String
+    user: String
+    solution: String
+}

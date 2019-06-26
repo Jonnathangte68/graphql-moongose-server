@@ -1,0 +1,19 @@
+#import User from './user.graphql'
+
+type Skill {
+    _id: ID
+    skill_id: String!
+    status: String!
+    subject: String!
+    tags: String!
+    content_types: String!
+    user: User
+}
+
+input SkillInput {
+    skill_id: String
+    status: String
+    subject: String
+    tags: String
+    content_types: String
+}
